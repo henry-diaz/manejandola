@@ -60,3 +60,12 @@ gem 'searchkick'
 gem "font-awesome-rails"
 
 gem "breadcrumbs_on_rails"
+
+
+group :development do
+  # Remote multi-server automation tool
+  gem 'capistrano', '~> 3.4'
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+end

@@ -1,0 +1,3 @@
+omniauth_callbacks:
+  failure: "No se pudo autenticar desde %{kind} debido a \"%{reason}\"."
+  success: "Autenticación satisfactoria desde tu cuenta de %{kind}."
