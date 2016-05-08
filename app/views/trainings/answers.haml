@@ -1,0 +1,47 @@
+%ul.breadcrumb
+  = render_breadcrumbs tag: :li, separator: ''
+.panel{class: "panel-#{@answer.correct? ? "success" : "danger"}"}
+  .panel-heading
+    %strong
+      %span.glyphicon{aria: {hidden: true}, class: "#{question.glyphicon}"}
+      = question.category_s
+  .panel-body
+    = question.question
+    - if question.image.present?
+      .row
+        .col-sm-offset-5.col-sm-2.col-xs-6.col-xs-offset-3
+          = image_tag(question.image.url(:thumb), class: 'img-responsive img-thumbnail')
+  .list-group
+    - ( 1 .. 4).each do |n|
+      - if question["answer_#{n}"].present?
+        .list-group-item{class: @answer.correct_answer == n ? 'success' : ( @answer.answer == n ? 'danger' : nil) }
+          .row-action-primary
+            = link_to 'javascript:void(0)' do
+              %i.material-icons
+                - if @answer.correct_answer == n
+                  check_circle
+                - elsif @answer.answer == n
+                  error
+                - else
+                  - case n
+                  - when 1
+                    looks_one
+                  - when 2
+                    looks_two
+                  - when 3
+                    looks_3
+                  - else
+                    looks_4
+          .row-content
+            .list-group-item-text
+              = link_to 'javascript:void(0)', class: 'btn btn-no-upper' do
+                = question["answer_#{n}"]
+        - if n < 4
+          .list-group-separator
+    %div.text-right
+      = link_to "Siguiente pregunta", trainings_url, class: 'btn'
+
+= "#{current_user.percent_training}%"
+completado
+.progress
+  .progress-bar{role: 'progressbar', aria: {valuenow: current_user.percent_training, valuemin: 0, valuemax: 100}, style: "width: #{current_user.percent_training == 0 ? "2" : current_user.percent_training}%;", class: "#{current_user.percent_training < 20 ? "progress-bar-danger" : ( current_user.percent_training < 70 ? "progress-bar-warning" : "progress-bar-success" )}"}

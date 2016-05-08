@@ -12,5 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require bootstrap-sprockets
+//= require material.min
+//= require ripples.min
 //= require_tree .
+
+$(function(){
+  // Required for material design scripts
+  $.material.init();
+});

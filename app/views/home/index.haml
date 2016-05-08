@@ -1,0 +1,17 @@
+%h1.center
+  = image_tag(current_user.image.url, class: 'img-circle')
+  = "¡Bienvenido #{current_user.name}!"
+
+.row
+  .col-xs-12
+    - if current_user.need_training?
+      Antes de iniciar, necesitamos medir el nivel en el que estas, por favor de clic en el botón medir nivel:
+      %br
+      %br
+      = "#{current_user.percent_training}%"
+      .progress
+        .progress-bar{role: 'progressbar', aria: {valuenow: current_user.percent_training, valuemin: 0, valuemax: 100}, style: "width: #{current_user.percent_training == 0 ? "2" : current_user.percent_training}%;", class: "#{current_user.percent_training < 20 ? "progress-bar-danger" : ( current_user.percent_training < 70 ? "progress-bar-warning" : "progress-bar-success" )}"}
+      = link_to trainings_url, class: 'btn btn-primary btn-raised' do
+        Medir nivel
+    - else
+      = render 'statistics'

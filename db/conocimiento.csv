@@ -1,0 +1,19 @@
+category,question,answer1,answer2,answer3,answer4,correct,level,image
+penalty,Bajar o subir pasajeros en lugares no permitidos o esquinas,Muy grave $57.14,Grave $34.29,Leve 11.43,,2,easy,
+penalty,Circular con placas de vendedor de vehículos cuando no están a la venta,Leve 11.43,Grave $34.29,Muy grave $57.14,,2,easy,
+penalty,No ceder el paso a vehículos de emergencia.,Muy grave $57.14,Grave $34.29,Leve 11.43,,2,easy,
+penalty,Estacionarse frete a cochera que no corresponda,Muy grave $57.14,Leve 11.43,Grave $34.29,,2,easy,
+penalty,No portar los triangulos reflectivos o dispositivos preventivos de seguidad,Muy grave $57.14,Grave $34.29,Leve 11.43,,3,easy,
+penalty,Circular vehículos con placas extranjeras sin el permiso correspondiente o después del tiempo reglamentario.,Grave $34.29,Muy grave $57.14,Leve 11.43,,1,easy,
+law,¿Es prohibido el estacionamiento en los espacios de uso peatonal?,Si,No,No se encuentra en la ley,En algunas ocasiones,1,easy,
+law,Se consideran vehiculos livianos de pasajeros,Microbuses,Motocicletas de todo tipo y clase,Todas son correctas,Automóviles,3,easy,
+law,¿Los vehículos dedicados al transporte publicos de pasajeros no deberian de exceder de?,20 años,25 años,10 años,12 años,1,easy,
+law,"¿Qué vehículos tienen el derecho preferencial de circulación, cuando lo hacen en cumplimiento de sus funciones?",De seguridad presidencial,Todas son correctas,De instituciones de servicios de emergencias y hospitalarios,Los vehículos de la PNC,2,easy,
+law,"¿Qué centros están debidamente autorizados por el VMT para la realización de los examenes visual, teórico, practico para optar a la licencia de conducir?",SERTRACEN ,Las escuelas de manejo,Centros oficiales o privados debidamente autorizados,Todas son correctas,3,easy,
+law,¿Qué tipo de vehículos se exceptúan para tener el timón al lado derecho?,Los vehículos antigüos de colección cuyo timón original es al lado derecho,Los de fabricación original al lado derecho,a y b son correctas,Los traidos del exterior,1,easy,
+sign,Significado,Hombre y mujer,Desvestideros,Baños o servicios sanitarios,,3,easy,220837_6.jpg
+sign,Significado,Proximidad a intersección,Proximidad de intersección,Proximidad de la intersección,,2,easy,220837_52.jpg
+sign,Significado,Panel,Barril,Cono,,3,easy,220837_36.jpg
+sign,Significado,Gas,Gasolinera,Estación de servicio,,2,easy,220837_22.jpg
+sign,Significado,Carro,Taxi,Estacionamiento de taxi,,2,easy,220837_21.jpg
+sign,Significado,Sitio colonial,Catedral,Iglesia,,1,easy,220837_2.jpg

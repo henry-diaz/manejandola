@@ -1,0 +1,12 @@
+.row
+  .col-sm-6.col-sm-offset-3.col-xs-12.col-xs-offset-0
+    %h1.center
+      ¡Bienvenidos a Manejandola!
+    %h2.center
+      La plataforma que te prepara para tu examen de manejo en El Salvador.
+    %br
+    - resource_class.omniauth_providers.each do |provider|
+      .center
+        = link_to omniauth_authorize_path(resource_name, provider), title: "Ingresar con #{provider}", class: 'btn btn-block btn-raised btn-social btn-facebook' do
+          %span.fa.fa-facebook
+          Ingresar con Facebook

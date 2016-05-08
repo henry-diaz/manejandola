@@ -1,0 +1,35 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+@import "bootstrap-social";
+@import "bootstrap-material-design.min";
+@import "ripples.min";
+
+.btn-no-upper {
+  display: block;
+  text-align: left;
+  text-transform: none !important;
+  font-weight: normal;
+}
+
+.list-group-item {
+  .btn {
+    white-space: normal;
+  }
+  &.success {
+    i {
+      background: #4caf50 !important;
+    }
+    a.btn {
+      color: #4caf50 !important;
+    }
+  }
+  &.danger {
+    i {
+      background: #f44336 !important;
+    }
+    a.btn {
+      color: #f44336 !important;
+    }
+  }
+}

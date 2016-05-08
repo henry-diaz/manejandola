@@ -1,0 +1,19 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+    %meta{:content=> "noindex, nofollow", :name => "robots"}
+    %title Manejandola
+    = stylesheet_link_tag    'application', media: 'all'
+    = stylesheet_link_tag '//fonts.googleapis.com/css?family=Roboto:300,400,500,700', type: 'text/css'
+    = stylesheet_link_tag '//fonts.googleapis.com/icon?family=Material+Icons', type: 'text/css'
+    = javascript_include_tag 'https://www.gstatic.com/charts/loader.js'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  %body
+    = render 'layouts/partials/header'
+    .container
+      = render 'layouts/partials/notice'
+      = yield
