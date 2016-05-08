@@ -14,6 +14,10 @@
         %li{ class: "#{controller_name == 'home' ? 'active' : nil}"}
           %a{:href => root_url}
             Dashboard
+        - unless current_user.need_training?
+          %li{ class: "#{controller_name == 'learn' ? 'active' : nil}"}
+            %a{:href => learn_index_url}
+              Aprender más
         -#
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}

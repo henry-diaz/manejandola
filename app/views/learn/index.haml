@@ -1,0 +1,43 @@
+%ul.breadcrumb
+  = render_breadcrumbs tag: :li, separator: ''
+.row
+  .col-xs-12
+    .panel.panel-default
+      .panel-heading
+        %strong
+          %span.glyphicon{aria: {hidden: true}, class: "#{@question.glyphicon}"}
+          = @question.category_s
+      .panel-body
+        = @question.question
+        - if @question.image.present?
+          .row
+            .col-sm-offset-5.col-sm-2.col-xs-6.col-xs-offset-3
+              = image_tag(@question.image.url(:thumb), class: 'img-responsive img-thumbnail')
+      .list-group
+        - ( 1 .. 4).each do |n|
+          - if @question["answer_#{n}"].present?
+            .list-group-item{class: @question.correct == n ? 'success' : nil }
+              .row-action-primary
+                = link_to 'javascript:void(0)' do
+                  %i.material-icons
+                    - if @question.correct == n
+                      check_circle
+                    - else
+                      - case n
+                      - when 1
+                        looks_one
+                      - when 2
+                        looks_two
+                      - when 3
+                        looks_3
+                      - else
+                        looks_4
+              .row-content
+                %p.list-group-item-text
+                  = @question["answer_#{n}"]
+            - if n < 4
+              .list-group-separator
+
+      .text-right
+        = link_to params[:category] ? category_learn_url(params[:category]) : learn_index_url, class: 'btn btn-flat btn-warning' do
+          Aprender más
