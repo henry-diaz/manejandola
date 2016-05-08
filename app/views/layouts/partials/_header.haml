@@ -15,6 +15,9 @@
           %a{:href => root_url}
             Dashboard
         - unless current_user.need_training?
+          %li{ class: "#{controller_name == 'practices' ? 'active' : nil}"}
+            %a{:href => practices_url}
+              Practicar
           %li{ class: "#{controller_name == 'learn' ? 'active' : nil}"}
             %a{:href => learn_index_url}
               Aprender más

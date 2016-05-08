@@ -24,8 +24,7 @@
               - else
                 Avanzado
         %footer.card-footer
-          %button.btn.btn-flat
-            Practicar
+          = link_to 'Practicar', practices_url(category: 'law'), class: 'btn btn-flat'
           = link_to 'Aprender más', category_learn_url('law'), class: 'btn btn-flat btn-warning'
   .col-lg-4.col-md-6.col-sm-6.col-xs-12
     .card
@@ -52,8 +51,7 @@
               - else
                 Avanzado
         %footer.card-footer
-          %button.btn.btn-flat
-            Practicar
+          = link_to 'Practicar', practices_url(category: 'penalty'), class: 'btn btn-flat'
           = link_to 'Aprender más', category_learn_url('penalty'), class: 'btn btn-flat btn-warning'
 
   .col-lg-4.col-md-6.col-sm-6.col-xs-12
@@ -81,8 +79,7 @@
               - else
                 Avanzado
         %footer.card-footer
-          %button.btn.btn-flat
-            Practicar
+          = link_to 'Practicar', practices_url(category: 'sign'), class: 'btn btn-flat'
           = link_to 'Aprender más', category_learn_url('sign'), class: 'btn btn-flat btn-warning'
 
 -#
