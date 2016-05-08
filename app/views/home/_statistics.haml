@@ -1,40 +1,145 @@
-.well.well-lg
-  #chart_div
+.row
+  .col-lg-4.col-md-6.col-sm-6.col-xs-12
+    .card
+      .card-height-indicator
+      .card-content
+        .card-image
+          = image_tag('card_01.png')
+          %h3.card-image-headline
+            Leyes de tránsito
+        .card-body
+          %p
+            #{current_user.law_correct_answers.size} de #{current_user.law_answers.size}
+            preguntas contestadas correctamente. Porcentaje de acierto:
+            %strong
+              #{current_user.law_success_rate}%
+          %p
+            Nivel
+            %span{ class: "#{current_user.law_success_rate < 50 ? 'text-danger' : ( current_user.law_success_rate < 70 ? 'text-warning' : 'text-success' )}" }
+              - case current_user.law_success_rate
+              - when 0 .. 50
+                Bajo
+              - when 50 .. 70
+                Intermedio
+              - else
+                Avanzado
+        %footer.card-footer
+          %button.btn.btn-flat
+            Practicar
+          %button.btn.btn-flat.btn-warning
+            Aprender mas
+  .col-lg-4.col-md-6.col-sm-6.col-xs-12
+    .card
+      .card-height-indicator
+      .card-content
+        .card-image
+          = image_tag('card_02.png')
+          %h3.card-image-headline
+            Infracciones
+        .card-body
+          %p
+            #{current_user.penalty_correct_answers.size} de #{current_user.penalty_answers.size}
+            preguntas contestadas correctamente. Porcentaje de acierto:
+            %strong
+              #{current_user.penalty_success_rate}%
+          %p
+            Nivel
+            %span{ class: "#{current_user.penalty_success_rate < 50 ? 'text-danger' : ( current_user.penalty_success_rate < 70 ? 'text-warning' : 'text-success' )}" }
+              - case current_user.penalty_success_rate
+              - when 0 .. 50
+                Bajo
+              - when 50 .. 70
+                Intermedio
+              - else
+                Avanzado
+        %footer.card-footer
+          %button.btn.btn-flat
+            Practicar
+          %button.btn.btn-flat.btn-warning
+            Aprender mas
+  .col-lg-4.col-md-6.col-sm-6.col-xs-12
+    .card
+      .card-height-indicator
+      .card-content
+        .card-image
+          = image_tag('card_03.png')
+          %h3.card-image-headline
+            Señales de tránsito
+        .card-body
+          %p
+            #{current_user.sign_correct_answers.size} de #{current_user.sign_answers.size}
+            preguntas contestadas correctamente. Porcentaje de acierto:
+            %strong
+              #{current_user.sign_success_rate}%
+          %p
+            Nivel
+            %span{ class: "#{current_user.sign_success_rate < 50 ? 'text-danger' : ( current_user.sign_success_rate < 70 ? 'text-warning' : 'text-success' )}" }
+              - case current_user.sign_success_rate
+              - when 0 .. 50
+                Bajo
+              - when 50 .. 70
+                Intermedio
+              - else
+                Avanzado
+        %footer.card-footer
+          %button.btn.btn-flat
+            Practicar
+          %button.btn.btn-flat.btn-warning
+            Aprender mas
+-#
+  %br
+  .row
+    .col-lg-12
+      .card
+        .card-height-indicator
+        .card-content
+          .card-image
+            = image_tag('card_04.png')
+            %h3.card-image-headline
+              Estadísticas
+          .card-body
+            %p
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          %footer.card-footer
+            %button.btn.btn-flat
+              Compartir
+            %button.btn.btn-flat.btn-warning
+              Aprender mas
 
 
+-#
+  :javascript
+    $(function(){
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', {'packages':['corechart']});
 
-:javascript
-  $(function(){
-  // Load the Visualization API and the corechart package.
-  google.charts.load('current', {'packages':['corechart']});
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawChart);
 
-  // Set a callback to run when the Google Visualization API is loaded.
-  google.charts.setOnLoadCallback(drawChart);
+    // Callback that creates and populates a data table,
+    // instantiates the pie chart, passes in the data and
+    // draws it.
+    function drawChart() {
 
-  // Callback that creates and populates a data table,
-  // instantiates the pie chart, passes in the data and
-  // draws it.
-  function drawChart() {
+    // Create the data table.
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Topping');
+    data.addColumn('number', 'Slices');
+    data.addRows([
+    ['Mushrooms', 3],
+    ['Onions', 1],
+    ['Olives', 1],
+    ['Zucchini', 1],
+    ['Pepperoni', 2]
+    ]);
 
-  // Create the data table.
-  var data = new google.visualization.DataTable();
-  data.addColumn('string', 'Topping');
-  data.addColumn('number', 'Slices');
-  data.addRows([
-  ['Mushrooms', 3],
-  ['Onions', 1],
-  ['Olives', 1],
-  ['Zucchini', 1],
-  ['Pepperoni', 2]
-  ]);
+    // Set chart options
+    var options = {'title':'How Much Pizza I Ate Last Night',
+    'width':400,
+    'height':300};
 
-  // Set chart options
-  var options = {'title':'How Much Pizza I Ate Last Night',
-  'width':400,
-  'height':300};
-
-  // Instantiate and draw our chart, passing in some options.
-  var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-  chart.draw(data, options);
-  }
-  });
+    // Instantiate and draw our chart, passing in some options.
+    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+    }
+    });

@@ -1,21 +1,27 @@
 class Question < ActiveRecord::Base
+  # For search using elastic_search
   searchkick
 
+  # Custom validations
   has_attached_file :image, styles: { medium: '410x410>', thumb: '176x176#' }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
-  scope :random,  -> { order('RANDOM()').limit(1).first }
+  # Scopes
+  scope :random,  -> { order('RANDOM()').limit(1).first } # Get a random question
 
+  # Constants
   CATEGORY = {
     'penalty' => 'Multas',
     'law' => 'Ley de tránsito',
     'sign' => 'Señales'
   }
 
+  # Return category pretty string
   def category_s
     CATEGORY[category]
   end
 
+  # Return a bootstrap glyphicon icon, depends of the category of a question
   def glyphicon
     case category
     when 'penalty'
