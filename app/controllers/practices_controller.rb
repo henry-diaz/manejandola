@@ -7,7 +7,7 @@ class PracticesController < ApplicationController
       question = Question.where(category: params[:category]).random
       redirect_to practice_url(question, category: params[:category]) and return
     else
-      question = Question.random
+      question = Question.for_user(current_user).random
       redirect_to practice_url(question) and return
     end
   end

@@ -110,4 +110,16 @@ class User < ActiveRecord::Base
     @sign_success_rate ||= ((sign_correct_answers.size.to_f / sign_answers.size) * 100).round(2)
   end
 
+  # Find the weak category
+  def weak_category
+    weak = [penalty_success_rate, law_success_rate, sign_success_rate].min
+    if penalty_success_rate == weak
+      return 'penalty'
+    elsif law_success_rate == weak
+      return 'law'
+    else
+      return 'sign'
+    end
+  end
+
 end

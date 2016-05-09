@@ -7,9 +7,9 @@ class LearnController < ApplicationController
     puts params[:category]
     if params[:category]
       add_breadcrumb Question::CATEGORY[params[:category].to_s]
-      @question = Question.where(category: params[:category]).random
+      @question = current_user.questions.where(category: params[:category]).random
     else
-      @question = Question.random
+      @question = current_user.questions.random
     end
   end
 end

@@ -8,6 +8,7 @@ class Question < ActiveRecord::Base
 
   # Scopes
   scope :random,  -> { order('RANDOM()').limit(1).first } # Get a random question
+  scope :for_user, ->(u) { where(category: u.weak_category) }
 
   # Constants
   CATEGORY = {
