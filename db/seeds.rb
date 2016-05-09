@@ -8,8 +8,6 @@
 
 
 # Load questions
-UserQuestion.destroy_all
-Question.destroy_all
 require 'csv'
 CSV.foreach("#{Rails.root.to_s}/db/conocimiento.csv", headers: true) do |row|
   h = row.to_hash
